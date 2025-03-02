@@ -1,10 +1,10 @@
 [package]
-name = "event_handler"
+name = "app_raa_tui"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
 eyre.workspace = true
 raalog.workspace = true
+ratatui.workspace = true
 
-crossterm = "0.28.1"

@@ -4,6 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-anyhow.workspace = true
+eyre.workspace = true
 raalog.workspace = true
 mlua.workspace = true

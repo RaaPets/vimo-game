@@ -1,4 +1,4 @@
-use anyhow::Result;
+use eyre::Result;
 
 #[allow(unused_imports)]
 use raalog::{debug, error, info, trace, warn};

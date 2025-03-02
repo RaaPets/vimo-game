@@ -1,4 +1,4 @@
-use anyhow::Result;
+use eyre::Result;
 
 #[allow(unused_imports)]
 use raalog::{debug, error, info, trace, warn};
@@ -48,7 +48,7 @@ impl GameModelInterface for GameModel {
                 self.game_state = self.invoke_lua_update(time, new_player)?;
                 Ok(())
             }
-            (GameState::Undef, _) => Err(anyhow::anyhow!("The first time stamp in Undef state must be <-1>")),
+            (GameState::Undef, _) => Err(eyre::eyre!("The first time stamp in Undef state must be <-1>")),
             (GameState::GameOver(_, _), _) => Ok(()),
             (GameState::Running(objs), _) => {
                 let new_player = move_player::move_player(objs.player, opt_cmd);
@@ -91,10 +91,10 @@ mod game_model_tests {
         assert!(model.game_state == GameState::Undef);
         model.update(-1, None)?;
         let GameState::Running(objs) = &model.game_state else {
-            return Err(anyhow::anyhow!("game_state is not Running(_)"));
+            return Err(eyre::eyre!("game_state is not Running(_)"));
         };
         let Some(player) = objs.player else {
-            return Err(anyhow::anyhow!("game_state.player is None"));
+            return Err(eyre::eyre!("game_state.player is None"));
         };
         assert!(player == (7,4));
         Ok(())

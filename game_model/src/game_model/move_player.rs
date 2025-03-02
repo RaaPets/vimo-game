@@ -20,7 +20,7 @@ pub(crate) fn move_player(opt_player: Option<(u16, u16)>, opt_cmd: Option<GameCo
 #[cfg(test)]
 mod move_player_tests {
     use super::*;
-    use anyhow::Result;
+    use eyre::Result;
 
     #[test]
     fn no_moves() -> Result<()> {

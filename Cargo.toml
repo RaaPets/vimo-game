@@ -5,14 +5,15 @@ authors=["AlexanderARodin"]
 edition = "2021"
 
 [dependencies]
-anyhow.workspace = true
+eyre.workspace = true
 raalog.workspace = true
+ratatui.workspace = true
 
 clap = { version = "4.5.20", features = ["derive"] }
 
-ratatui = "0.29.0"
-edtui = "0.9.0"
+edtui = "0.9.1"
 
+app_raa_tui = { path = "./app_raa_tui" }
 # game_model_old = { path = "./game_model_old" }
 game_model = { path = "./game_model" }
 event_handler = { path = "./event_handler" }
@@ -22,12 +23,14 @@ event_handler = { path = "./event_handler" }
 resolver = "2"
 members = [
 	"game_model", "event_handler",
-	"game_model_old",
+	"app_raa_tui",
+	#"game_model_old",
 ]
 
 [workspace.dependencies]
-anyhow = "1.0.88"
-raalog = { path = "../raalog" }
-# raalog = { git = "https://github.com/AlexanderARodin/raalog.git", branch = "main" }
+#anyhow = "1.0.88"
+eyre = "0.6.12"
+raalog = { git = "https://github.com/AlexanderARodin/raalog.git", branch = "main" }
 
+ratatui = "0.29.0"
 mlua = { version = "0.9.9", features = ["lua54", "vendored"] }

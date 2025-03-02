@@ -61,7 +61,7 @@ impl GameState {
 #[cfg(test)]
 mod game_state_tests {
     use super::*;
-    use anyhow::Result;
+    use eyre::Result;
 
     #[test]
     fn undef_state() -> Result<()> {

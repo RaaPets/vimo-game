@@ -1,4 +1,4 @@
-use anyhow::Result;
+use eyre::Result;
 
 pub enum GameCommand {
     Up,

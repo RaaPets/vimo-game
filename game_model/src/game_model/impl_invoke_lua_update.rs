@@ -1,4 +1,4 @@
-use anyhow::Result;
+use eyre::Result;
 
 #[allow(unused_imports)]
 use raalog::{debug, error, info, trace, warn};
@@ -123,9 +123,9 @@ mod game_model_tests {
         let model = GameModel::new(code)?;
         let new_state = model.invoke_lua_update(-1, None)?;
         match new_state {
-            GameState::Undef => Err(anyhow::anyhow!("can't be GameState::Undef")),
+            GameState::Undef => Err(eyre::eyre!("can't be GameState::Undef")),
             GameState::GameOver(_, _) => Ok(()),
-            GameState::Running(_) => Err(anyhow::anyhow!("can't be GameState::Running()")),
+            GameState::Running(_) => Err(eyre::eyre!("can't be GameState::Running()")),
         }
     }
 
@@ -153,8 +153,8 @@ mod game_model_tests {
         let model = GameModel::new(code)?;
         let new_state = model.invoke_lua_update(-1, Some((11, 7)))?;
         match new_state {
-            GameState::Undef => Err(anyhow::anyhow!("can't be GameState::Undef")),
-            GameState::GameOver(_, _) => Err(anyhow::anyhow!("can't be GameState::GameOver()")),
+            GameState::Undef => Err(eyre::eyre!("can't be GameState::Undef")),
+            GameState::GameOver(_, _) => Err(eyre::eyre!("can't be GameState::GameOver()")),
             GameState::Running(objs) => {
                 assert!(objs.player == Some((11, 7)));
                 assert!(objs.target == Some((2, 6)));
@@ -181,8 +181,8 @@ mod game_model_tests {
         let model = GameModel::new(code)?;
         let new_state = model.invoke_lua_update(-1, None)?;
         match new_state {
-            GameState::Undef => Err(anyhow::anyhow!("can't be GameState::Undef")),
-            GameState::GameOver(_, _) => Err(anyhow::anyhow!("can't be GameState::GameOver()")),
+            GameState::Undef => Err(eyre::eyre!("can't be GameState::Undef")),
+            GameState::GameOver(_, _) => Err(eyre::eyre!("can't be GameState::GameOver()")),
             GameState::Running(objs) => {
                 assert!(objs.target.is_none());
                 assert!(objs.player.is_none());
@@ -210,8 +210,8 @@ mod game_model_tests {
         let model = GameModel::new(code)?;
         let new_state = model.invoke_lua_update(-1, None)?;
         match new_state {
-            GameState::Undef => Err(anyhow::anyhow!("can't be GameState::Undef")),
-            GameState::GameOver(_, _) => Err(anyhow::anyhow!("can't be GameState::GameOver()")),
+            GameState::Undef => Err(eyre::eyre!("can't be GameState::Undef")),
+            GameState::GameOver(_, _) => Err(eyre::eyre!("can't be GameState::GameOver()")),
             GameState::Running(objs) => {
                 assert!(objs.target.is_none());
                 assert!(objs.player.is_none());
@@ -236,8 +236,8 @@ mod game_model_tests {
         let model = GameModel::new(code)?;
         let new_state = model.invoke_lua_update(-1, None)?;
         match new_state {
-            GameState::Undef => Err(anyhow::anyhow!("can't be GameState::Undef")),
-            GameState::GameOver(_, _) => Err(anyhow::anyhow!("can't be GameState::GameOver()")),
+            GameState::Undef => Err(eyre::eyre!("can't be GameState::Undef")),
+            GameState::GameOver(_, _) => Err(eyre::eyre!("can't be GameState::GameOver()")),
             GameState::Running(objs) => {
                 assert!(objs.target.is_none());
                 assert!(objs.player.is_none());
@@ -260,8 +260,8 @@ mod game_model_tests {
         let model = GameModel::new(code)?;
         let new_state = model.invoke_lua_update(-1, None)?;
         match new_state {
-            GameState::Undef => Err(anyhow::anyhow!("can't be GameState::Undef")),
-            GameState::GameOver(_, _) => Err(anyhow::anyhow!("can't be GameState::GameOver()")),
+            GameState::Undef => Err(eyre::eyre!("can't be GameState::Undef")),
+            GameState::GameOver(_, _) => Err(eyre::eyre!("can't be GameState::GameOver()")),
             GameState::Running(objs) => {
                 assert!(objs.target == Some((13, 14)));
                 assert!(objs.player.is_none());
@@ -281,8 +281,8 @@ mod game_model_tests {
         let model = GameModel::new(code)?;
         let new_state = model.invoke_lua_update(-1, None)?;
         match new_state {
-            GameState::Undef => Err(anyhow::anyhow!("can't be GameState::Undef")),
-            GameState::GameOver(_, _) => Err(anyhow::anyhow!("can't be GameState::GameOver()")),
+            GameState::Undef => Err(eyre::eyre!("can't be GameState::Undef")),
+            GameState::GameOver(_, _) => Err(eyre::eyre!("can't be GameState::GameOver()")),
             GameState::Running(objs) => {
                 assert!(objs.player.is_none());
                 assert!(objs.target.is_none());

@@ -22,6 +22,11 @@ pub struct AppModel {
     pub(crate) config: crate::config::AppConfig,
 }
 
+struct EdTuiHolder {
+    state: edtui::EditorState,
+    handler: edtui::EditorEventHandler,
+}
+
 #[derive(PartialEq)]
 pub enum AppModelState {
     //EditorFocused,
